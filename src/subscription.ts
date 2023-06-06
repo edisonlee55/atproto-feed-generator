@@ -12,24 +12,30 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
     // This logs the text of every post off the firehose.
     // Just for fun :)
     // Delete before actually using
-    for (const post of ops.posts.creates) {
-      console.log(post.record.text)
-    }
+    // for (const post of ops.posts.creates) {
+    //   console.log(post.record.text)
+    // }
 
     const postsToDelete = ops.posts.deletes.map((del) => del.uri)
-    const postsToCreate = ops.posts.creates
+
+    const illustHashtagPosts = ops.posts.creates
       .filter((create) => {
-        // only alf-related posts
-        return create.record.text.toLowerCase().includes('alf')
+        // Filtering posts by hashtag
+        let filterRes = create.record.text.toLowerCase().includes('#illust') || create.record.text.toLowerCase().includes('#illustration') || create.record.text.includes('#イラスト')
+        return filterRes
       })
       .map((create) => {
-        // map alf-related posts to a db row
+        // Log filtered posts to console
+        // console.log(create.record.text)
+
+        // map filtered posts to a db row
         return {
           uri: create.uri,
           cid: create.cid,
           replyParent: create.record?.reply?.parent.uri ?? null,
           replyRoot: create.record?.reply?.root.uri ?? null,
           indexedAt: new Date().toISOString(),
+          feedShortName: 'illust-hashtag'
         }
       })
 
@@ -39,10 +45,11 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
         .where('uri', 'in', postsToDelete)
         .execute()
     }
-    if (postsToCreate.length > 0) {
+
+    if (illustHashtagPosts.length > 0) {
       await this.db
         .insertInto('post')
-        .values(postsToCreate)
+        .values(illustHashtagPosts)
         .onConflict((oc) => oc.doNothing())
         .execute()
     }
