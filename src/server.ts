@@ -10,6 +10,8 @@ import { FirehoseSubscription } from './subscription'
 import { AppContext, Config } from './config'
 import wellKnown from './well-known'
 
+import { TypeCheck } from './util/type-check'
+
 export class FeedGenerator {
   public app: express.Application
   public server?: http.Server
@@ -36,7 +38,7 @@ export class FeedGenerator {
 
     const didCache = new MemoryCache()
     const didResolver = new DidResolver(
-      { plcUrl: 'https://plc.directory' },
+      { plcUrl: TypeCheck.maybeStr(process.env.FEEDGEN_PLC_URL) ?? 'https://plc.directory' },
       didCache,
     )
 

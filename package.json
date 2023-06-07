@@ -12,6 +12,7 @@
     "build": "tsc",
     "start-prod": "pm2 start dist/index.js --name neko-atproto-feed-generator",
     "stop-prod": "pm2 stop neko-atproto-feed-generator",
+    "restart-prod": "pm2 stop neko-atproto-feed-generator && pm2 start dist/index.js --name neko-atproto-feed-generator",
     "delete-prod": "pm2 delete neko-atproto-feed-generator"
   },
   "dependencies": {
