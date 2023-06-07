@@ -17,6 +17,8 @@ const run = async () => {
       'wss://bsky.social',
     publisherDid:
       TypeCheck.maybeStr(process.env.FEEDGEN_PUBLISHER_DID) ?? 'did:example:alice',
+    subscriptionReconnectDelay:
+      TypeCheck.maybeInt(process.env.FEEDGEN_SUBSCRIPTION_RECONNECT_DELAY) ?? 3000,
     hostname,
     serviceDid,
   })
