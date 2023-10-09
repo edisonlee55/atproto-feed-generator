@@ -1982,8 +1982,8 @@ __metadata:
   linkType: hard
 
 "pino@npm:^8.15.0":
-  version: 8.15.6
-  resolution: "pino@npm:8.15.6"
+  version: 8.15.7
+  resolution: "pino@npm:8.15.7"
   dependencies:
     atomic-sleep: ^1.0.0
     fast-redact: ^3.1.1
@@ -1998,7 +1998,7 @@ __metadata:
     thread-stream: ^2.0.0
   bin:
     pino: bin.js
-  checksum: d5636b10ade597d63279b7eaf4484202ba3b4705903cb9138088ca43280b3b8d4265d62bd9cf860793601ac27869d976f07b5cbb20920ef999887fb1897cc9c9
+  checksum: f66a75be09b242d7b2f10ad4113fefbed673ecf5c99dbcdce948e573703732b55e96d3c562591ef61651297289301af59b1ce2b1bea992a05012d613e17da931
   languageName: node
   linkType: hard
 
@@ -2349,11 +2349,11 @@ __metadata:
   linkType: hard
 
 "sonic-boom@npm:^3.1.0":
-  version: 3.6.1
-  resolution: "sonic-boom@npm:3.6.1"
+  version: 3.7.0
+  resolution: "sonic-boom@npm:3.7.0"
   dependencies:
     atomic-sleep: ^1.0.0
-  checksum: 8a682bde7774bbb8ad7ebfdda790000c5b7c33a5a942a09248221e4de2cadc74a666b2c0d586b0b57016a243da58b4cf2b85f1515fe302d99e91079a8a13c857
+  checksum: 528f0f7f7e09dcdb02ad5985039f66554266cbd8813f9920781607c9248e01f468598c1334eab2cc740c016a63c8b2a20e15c3f618cddb08ea1cfb4a390a796e
   languageName: node
   linkType: hard
 
