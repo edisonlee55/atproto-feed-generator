@@ -37,8 +37,8 @@ export class FeedGenerator {
     const firehose = new FirehoseSubscription(db, cfg.subscriptionEndpoint)
 
     const didCache = new MemoryCache()
-    const didResolver = new DidResolver(
-      { plcUrl: TypeCheck.maybeStr(process.env.FEEDGEN_PLC_URL) ?? 'https://plc.directory' },
+    const didResolver = new DidResolver({
+      plcUrl: TypeCheck.maybeStr(process.env.FEEDGEN_PLC_URL) ?? 'https://plc.directory',
       didCache,
     })
 
