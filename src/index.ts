@@ -14,7 +14,7 @@ const run = async () => {
     sqliteLocation: TypeCheck.maybeStr(process.env.FEEDGEN_SQLITE_LOCATION) ?? ':memory:',
     subscriptionEndpoint:
       TypeCheck.maybeStr(process.env.FEEDGEN_SUBSCRIPTION_ENDPOINT) ??
-      'wss://bsky.social',
+      'wss://bsky.network',
     publisherDid:
       TypeCheck.maybeStr(process.env.FEEDGEN_PUBLISHER_DID) ?? 'did:example:alice',
     subscriptionReconnectDelay:
